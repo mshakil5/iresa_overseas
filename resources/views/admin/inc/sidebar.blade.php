@@ -94,41 +94,30 @@
       </li>
 
 
-      <li class="nav-item">
-        <a href="{{route('admin.loan')}}" class="nav-link {{ (request()->is('admin/loan*')) ? 'active' : '' }}">
-          <i class="nav-icon fas fa-th"></i>
-          <p>
-            Loan
-          </p>
-        </a>
-      </li>
-
-
-      <li class="nav-item {{ (request()->is('admin/kafela-client*')) ? 'menu-open' : '' }}{{ (request()->is('admin/kafela-completed-clients*')) ? 'menu-open' : '' }}">
-        <a href="#" class="nav-link {{ (request()->is('admin/kafela-client*')) ? 'active' : '' }}">
+      <li class="nav-item {{ (request()->is('admin/customer*')) ? 'menu-open' : '' }}">
+        <a href="#" class="nav-link {{ (request()->is('admin/customer*')) ? 'active' : '' }}">
           <i class="nav-icon fas fa-copy"></i>
           <p>
-            Kafela Clients
+            Manpower <br> Management
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
+
+
           <li class="nav-item">
-            <a href="{{route('admin.kafelaclient')}}" class="nav-link {{ (request()->is('admin/kafela-client*')) ? 'active' : '' }}">
+            <a href="{{route('admin.customerCreate')}}" class="nav-link {{ (request()->is('admin/customer*')) ? 'active' : '' }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Processing</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('admin.kafelacompletedclient')}}" class="nav-link {{ (request()->is('admin/kafela-completed-clients*')) ? 'active' : '' }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Complete</p>
+              <p>Add Customer</p>
             </a>
           </li>
           
 
+
+
         </ul>
       </li>
+
 
 
 

@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\BusinessPartnerController;
 use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\KafelaClientController;
+use App\Http\Controllers\Admin\CustomerController;
 
 
 /*------------------------------------------
@@ -66,25 +66,7 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('/manpower-image-download/{id}', [ClientController::class, 'manpower_image_download'])->name('manpower_image.download');
     Route::get('/passport-image-download/{id}', [ClientController::class, 'passport_image_download'])->name('passport_image.download');
 
-    
-    Route::post('getchartofaccount', [ChartOfAccountController::class, 'getaccounthead']);
-    Route::get('/chart-of-account', [ChartOfAccountController::class, 'index'])->name('admin.coa');
-    Route::post('/chart-of-account', [ChartOfAccountController::class, 'store']);
-    Route::get('/chart-of-account/{id}/edit', [ChartOfAccountController::class, 'edit']);
-    Route::post('/chart-of-account-update', [ChartOfAccountController::class, 'update']);
-    Route::get('/chart-of-account/{id}', [ChartOfAccountController::class, 'delete']);
 
-    
-    Route::get('/loan', [LoanController::class, 'index'])->name('admin.loan');
-    Route::post('/loan', [LoanController::class, 'store']);
-    Route::get('/loan/{id}/edit', [LoanController::class, 'edit']);
-    Route::post('/loan-update', [LoanController::class, 'update']);
-    Route::get('/loan/{id}', [LoanController::class, 'delete']);
-
-    Route::get('/loan-return-history/{id}', [LoanController::class, 'loanReturnHistory'])->name('admin.loanReturnHistory');
-    Route::post('/loan-return', [LoanController::class, 'loanReturnStore']);
-    Route::get('/loan-return/{id}/edit', [LoanController::class, 'loanReturnedit']);
-    Route::post('/loan-return-update', [LoanController::class, 'loanReturnUpdate']);
 
     
     Route::get('/country', [CountryController::class, 'index'])->name('admin.country');
@@ -110,14 +92,9 @@ Route::group(['prefix' =>'admin/', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('/money-payment-update', [TransactionController::class, 'moneyPaymentUpdate']);
     Route::get('/money-payment/{id}/edit', [TransactionController::class, 'moneyPaymentEdit']);
 
-    // kafela client
-    Route::get('/kafela-client', [KafelaClientController::class, 'index'])->name('admin.kafelaclient');
-    Route::get('/kafela-decline-clients', [KafelaClientController::class, 'decline'])->name('admin.kafeladeclineclient');
-    Route::get('/kafela-completed-clients', [KafelaClientController::class, 'completed'])->name('admin.kafelacompletedclient');
-    Route::post('/kafela-client', [KafelaClientController::class, 'store']);
-    Route::get('/kafela-client/{id}/edit', [KafelaClientController::class, 'edit']);
-    Route::post('/kafela-client-update', [KafelaClientController::class, 'update']);
-    Route::get('/kafela-client/{id}', [KafelaClientController::class, 'delete']);
-    Route::get('/change-kafela-client-status', [KafelaClientController::class, 'changeClientStatus']);
+
+    
+    Route::get('/customer-create', [CustomerController::class, 'customerCreate'])->name('admin.customerCreate');
+    
 });
   
